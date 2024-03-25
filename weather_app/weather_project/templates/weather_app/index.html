@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Weather App</title>
 </head>
+
 <body>
     <form method="post">
         {% csrf_token %}
@@ -15,15 +17,18 @@
     <!-- Display data -->
     <div class="comparision-container">
         {% if weather_data1 %}
-            <div class="city-container">
-
-            </div>
+        <div class="city-container">
+            {% include 'weather_app/city_weather.html' with_weather_data=weather_data1 daily_forecasts=daily_forecasts1
+            %}
+        </div>
         {% endif %}
         {% if weather_data2 %}
-            <div class="city-container">
-
-            </div>
+        <div class="city-container">
+            {% include 'weather_app/city_weather.html' with_weather_data=weather_data2 daily_forecasts=daily_forecasts2
+            %}
+        </div>
         {% endif %}
     </div>
 </body>
+
 </html>
