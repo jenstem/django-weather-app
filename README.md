@@ -1,1 +1,1 @@
-# project-six
+# Django Weather App
