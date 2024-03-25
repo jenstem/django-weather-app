@@ -7,15 +7,12 @@
 </head>
 <body>
     <form method="post">
-        <!-- need to add csrf token to the form to make the post request work -->
         {% csrf_token %}
-        <!-- input for City 1 and City 2 -->
         <input type="text" name="city1" placeholder="City 1">
         <input type="text" name="city2" placeholder="City 2">
-        <!-- submit button -->
         <button type="submit">Compare Weather</button>
     </form>
-    <!-- display data -->
+    <!-- Display data -->
     <div class="comparision-container">
         {% if weather_data1 %}
             <div class="city-container">
