@@ -11,6 +11,22 @@ def index(request):
     if request.method == "POST":
         city1 = request.POST.get["city1"]
         city2 = request.get["city2", None]
+
+        weather_data1, daily_forecasts1 = fetch_weather_forecast(city1, API_KEY, current_weather_url, forecast_url)
+
+        if city2:
+            weather_data2, daily_forecasts2 = fetch_weather_forecast(city2, API_KEY, current_weather_url, forecast_url)
+        else:
+            weather_data2, daily_forecasts2 = None, None
+
+        context = {
+            "weather_data1": weather_data1,
+            "daily_forecasts1": daily_forecasts1,
+            "weather_data2": weather_data2,
+            "daily_forecasts2": daily_forecasts2,
+        }
+        return render(request, "weather_app/index.html", context)
+
     else:
         return render(request, "weather_app/index.html")
 
