@@ -38,7 +38,7 @@ THEN I can see the five day weather forecast for both cities
 
 <a id='installation'></a>
 ## Installation
-You will need to install Python 3.0+ and Django
+You will need to install Python 3.0+ and Django\
 You will also need a subscription to the API for [Open Weather Map](https://home.openweathermap.org/)
 
 Clone the repo:
@@ -53,7 +53,7 @@ Run the app with the following command line:
 <a id='usage'></a>
 ## Usage
 You can search for weather in a city by typing just the name of the city and hitting the "Compare Weather" button.\
-Or you can search the weather in two cities, by typing the name of the first city in where it says, "Enter city 1"\
+Or, you can search the weather in two cities, by typing the name of the first city in where it says, "Enter city 1"\
 and typing the name of the second city in where it says, "Enter city 2".\
 Then push the "Compare Weather" button.
 ##
