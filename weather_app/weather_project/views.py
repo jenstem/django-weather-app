@@ -3,11 +3,17 @@ import requests
 from django.shortcuts import render
 
 class InvalidApiKey(Exception):
+    """
+    Exception raised for errors in the API key.
+    """
     def __init__(self, message="Invalid API Key"):
         self.message = message
         super().__init__(self.message)
 
 def index(request):
+    """
+    Handles incoming requests and fetches weather data for specified cities.
+    """
     API_KEY = "YOUR_API_KEY"
     current_weather_url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
     forecast_url = "https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,minutely,hourly,alerts&appid={}"
@@ -41,6 +47,9 @@ def index(request):
 
 
 def fetch_weather_and_forecast(city, API_KEY, current_weather_url, forecast_url):
+    """
+    Fetches current weather and five-day forecast for a given city.
+    """
     response = requests.get(current_weather_url.format(city, API_KEY)).json()
     if response['cod'] == 401:
         raise InvalidApiKey
